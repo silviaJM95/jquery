@@ -1,0 +1,33 @@
+load(url, [,data] [,callback]) 方法 ——> 通常用来从web服务器上获取静态的数据文件
+作用：
+1、载入远程HTML文档代码，并插入DOM中
+2、筛选载入的HTML文档
+
+url: 请求HTML页面的URL地址
+data（可选）：发送至服务器的key/value数据
+callback(可选): 请求完成时的回调函数，无论请求成功或者失败
+
+$.get() / $.post()
+是jQuery中的全局函数，可以传递一些参数给服务器中的页面
+
+$.get(url) 使用 get 方式进行异步请求
+
+区别：
+1、GET 请求会将参数跟在URL后进行传递，POST请求则是作为HTTP消息的实体内容发送给Web服务器
+2、GET方式对传输的数据有大小限制（通常不能大于2KB），POST传递的量大（通常不受限制）
+3、GET方式请求的数据会被浏览器缓存起来，因此其他人可以从浏览器的历史记录中读取这些数据，例如账号、密码等，在耨些情况下，GET方式会带来严重的安全问题
+4、GET与POST传递的数据在服务器端的获取也不同
+
+$.getScript() / $.getJSON()
+
+！！！
+$.ajax(options)
+
+示例：
+$.ajax({
+  type: 'GET',
+  url: 'test.js',
+  dataType: 'script'
+})
+
+

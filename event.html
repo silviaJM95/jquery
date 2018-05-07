@@ -1,0 +1,57 @@
+jQuery中的事件和动画
+
+1、$(document).ready(function(){}) <===> $(function(){})
+
+$(document).ready() 与 window.onload() 区别
+1）$(document).ready() 不需要等待所有资源全部加载完，只要DOM加载完就可以
+window.onload() 必须等待所有的资源，包括外联的资源，图片等，才可以
+
+2）$(document).ready() 可执行多次
+window.onload() 只能执行一次
+
+2、事件绑定 —— bind()
+
+$('p').bind('type', handler) <===> $('p').type(handler)
+
+合成事件：hover / toggle
+
+hover()方法，用于模拟光标悬停事件，当光标移动到元素上时，会触发第一个函数，当光标移出这个元素时，会触发指定的第二个函数
+
+toggle()方法模拟鼠标连续单击事件
+
+jQuery中的事件冒泡与JS中一致，
+阻止事件冒泡和默认行为，就是用event.stopPropagation(); /  return false;
+event.preventDefault(); / return false;
+
+解除绑定 —— unbind()
+
+新增的事件绑定： on() live() delegate() bind()
+
+3、动画
+
+show() / hide(时间) 元素显示 / 隐藏的快慢，会修改元素多个样式属性，即高度、宽度、不透明度
+
+fadeIn() / fadeOut() 改变元素的不透明度
+
+slideUp() / slideDown() 只会改变元素的高度
+
+以上都可以指定三种速度参数，“slow” "normal" "fast" ，使用时加上引号show("slow")
+用数字作时间参数，不需要加引号，show(100)
+
+自定义动画 animate() 方法
+animate(params, speed, callback)
+
+params: 一个包含样式属性及值的映射 {property1:"value1"}
+speed: 速度参数，可选
+callback: 动画完成时执行的函数，可选
+
+停止动画 stop([clearQueue],[gotoEnd])
+
+参数值为 true / false
+clearQueue: 表示是否清空未执行完的动画队列
+gotoEnd: 代表是否直接将正在执行的动画跳转到末状态
+
+判断元素是否处于动画状态：$('p').is(':animated')
+
+延迟动画用delay()
+
